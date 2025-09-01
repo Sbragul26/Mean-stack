@@ -5,7 +5,7 @@ Raseed captures receipts from Gmail, Google Pay, POS systems, and manual uploads
 
 ---
 
-## 📖 About
+## About
 
 Over **60% of physical receipts are lost** and digital vouchers are scattered across apps, SMS, and emails.  
 While Google Wallet handles **150M+ daily transactions**, it lacks tools for organizing receipts.
@@ -18,7 +18,7 @@ While Google Wallet handles **150M+ daily transactions**, it lacks tools for org
 
 ---
 
-## ✨ Features
+## Features
 
 - **Gmail + Google Pay Sync** – auto-extract receipts & create Wallet passes.  
 - **Manual Receipt Upload** – scan/ upload receipts; supports multilingual OCR.  
@@ -30,7 +30,7 @@ While Google Wallet handles **150M+ daily transactions**, it lacks tools for org
 
 ---
 
-## 🛡 Unique Value
+## Unique Value
 
 - Centralizes receipts, vouchers & discounts in one place.  
 - Eliminates manual effort of sorting emails, SMS, and paper slips.  
@@ -39,7 +39,7 @@ While Google Wallet handles **150M+ daily transactions**, it lacks tools for org
 
 ---
 
-## 🏗 Tech Stack
+## Tech Stack
 
 ### 🔹 AI & Language
 - Gemini 1.5 Pro  
