@@ -1,59 +1,74 @@
-# WalletTracker
+# Project Raseed
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
+Transform Google Wallet into a **smart financial assistant** with AI-powered receipt management.  
+Raseed captures receipts from Gmail, Google Pay, POS systems, and manual uploads, turning them into Wallet passes with **real-time insights**.
 
-## Development server
+---
 
-To start a local development server, run:
+## About
 
-```bash
-ng serve
-```
+Over **60% of physical receipts are lost** and digital vouchers are scattered across apps, SMS, and emails.  
+While Google Wallet handles **150M+ daily transactions**, it lacks tools for organizing receipts.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+**Raseed** solves this problem by:
+- Centralizing physical & digital receipts in one place.  
+- Using **AI (Gemini + Document AI)** for OCR, NLP, and categorization.  
+- Providing **budget insights, alerts, and reminders** directly inside Google Wallet.  
+- Enabling **POS system integration** to generate e-bills linked with Google Pay.  
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Features
 
-```bash
-ng generate component component-name
-```
+- **Gmail + Google Pay Sync** – auto-extract receipts & create Wallet passes.  
+- **Manual Receipt Upload** – scan/ upload receipts; supports multilingual OCR.  
+- **POS System Integration** – auto-generate e-bills linked to Google Pay.  
+- **Intelligent Spend Insights** – category grouping, vouchers, and budget alerts.  
+- **Voice-enabled assistant** – ask spending queries via voice.  
+- **Family-level tracking** – manage household expenses together.  
+- **Purchase timeline memory** – recall past purchases instantly.  
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Unique Value
 
-## Building
+- Centralizes receipts, vouchers & discounts in one place.  
+- Eliminates manual effort of sorting emails, SMS, and paper slips.  
+- Provides **actionable, real-time insights**.  
+- Runs seamlessly inside **Google Wallet** — no extra apps needed.  
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## Tech Stack
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### 🔹 AI & Language
+- Gemini 1.5 Pro  
+- Vertex AI Agent  
+- Translation API  
 
-## Running unit tests
+### 🔹 Cloud & Infrastructure
+- Google Cloud Functions  
+- Firestore Database  
+- Firebase Auth  
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### 🔹 Integration
+- Google Wallet API  
+- Google Pay / UPI Integration  
+- Notification Service  
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+## Architecture Overview
 
-For end-to-end (e2e) testing, run:
+- **Google Cloud Functions** – backend logic & automation.  
+- **Firestore Database** – secure storage of structured receipt data.  
+- **Gemini / Document AI** – OCR + NLP for receipt parsing.  
+- **Vertex AI Agent** – smart categorization & insights.  
+- **Google Wallet API** – creates passes directly in Wallet.  
+- **GPay/UPI integration** – links payments to digital receipts.  
+- **Notification Service** – sends alerts & budget reminders.  
 
-```bash
-ng e2e
-```
+*(Insert diagrams if available: Architecture & Process Flow)*
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
