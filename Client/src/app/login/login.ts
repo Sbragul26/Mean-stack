@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators , ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from './auth.service'; // Assume this service exists
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule], 
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './login.html',
   styleUrls: ['./login.css']
 })
@@ -13,7 +16,8 @@ export class LoginComponent {
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -21,32 +25,41 @@ export class LoginComponent {
     });
   }
 
-  onSubmit() {
-    if (this.loginForm.valid) {
-      const { email, password } = this.loginForm.value;
-      this.authService.login(email, password).subscribe({
-        next: (response) => {
-          console.log('Login successful', response);
-          // Handle successful login (e.g., navigate to dashboard)
-        },
-        error: (error) => {
-          console.error('Login failed', error);
-          // Handle login error (e.g., show error message)
-        }
-      });
-    }
+onSubmit() {
+  if (this.loginForm.valid) {
+    const { email, password } = this.loginForm.value;
+    this.authService.login(email, password).subscribe({
+      next: (response) => {
+        console.log('Login successful', response);
+        console.log('Current URL before navigation:', this.router.url);
+        console.log('Attempting to navigate to /home');
+        
+        this.router.navigate(['/home']).then(
+          (navigationSuccess) => {
+            console.log('Navigation successful:', navigationSuccess);
+            console.log('Current URL after navigation:', this.router.url);
+          },
+          (navigationError) => {
+            console.error('Navigation failed:', navigationError);
+          }
+        ).catch((error) => {
+          console.error('Navigation promise error:', error);
+        });
+      },
+      error: (error) => console.error('Login failed', error)
+    });
+  } else {
+    console.log('Form is invalid:', this.loginForm.errors);
   }
+}
 
   loginWithGoogle() {
     this.authService.googleSignIn().subscribe({
       next: (response) => {
         console.log('Google login successful', response);
-        // Handle successful Google login
+        this.router.navigate(['/home']);
       },
-      error: (error) => {
-        console.error('Google login failed', error);
-        // Handle Google login error
-      }
+      error: (error) => console.error('Google login failed', error)
     });
   }
 
@@ -54,12 +67,9 @@ export class LoginComponent {
     this.authService.githubSignIn().subscribe({
       next: (response) => {
         console.log('GitHub login successful', response);
-        // Handle successful GitHub login
+        this.router.navigate(['/home']);
       },
-      error: (error) => {
-        console.error('GitHub login failed', error);
-        // Handle GitHub login error
-      }
+      error: (error) => console.error('GitHub login failed', error)
     });
   }
 }
